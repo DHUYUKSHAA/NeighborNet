@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: neighbornet-api
+    env: node
+    region: singapore
+    plan: free
+    rootDir: neighbornet-resilience/server
+    buildCommand: npm install
+    startCommand: node src/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
